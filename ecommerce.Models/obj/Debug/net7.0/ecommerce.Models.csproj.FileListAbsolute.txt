@@ -1,0 +1,12 @@
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\bin\Debug\net7.0\ecommerce.Models.deps.json
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\bin\Debug\net7.0\ecommerce.Models.dll
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\bin\Debug\net7.0\ecommerce.Models.pdb
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.csproj.AssemblyReference.cache
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.AssemblyInfoInputs.cache
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.AssemblyInfo.cs
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.csproj.CoreCompileInputs.cache
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.dll
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\refint\ecommerce.Models.dll
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ecommerce.Models.pdb
+C:\Users\jeana\source\repos\ecommerceApp\ecommerce.Models\obj\Debug\net7.0\ref\ecommerce.Models.dll
