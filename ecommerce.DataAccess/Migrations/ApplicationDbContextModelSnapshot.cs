@@ -21,7 +21,7 @@ namespace ecommerceApp.DataAccess.Data
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ecommerceApp.Models.Category", b =>
+            modelBuilder.Entity("ecommerce.Models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -34,7 +34,8 @@ namespace ecommerceApp.DataAccess.Data
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.HasKey("Id");
 
@@ -65,6 +66,174 @@ namespace ecommerceApp.DataAccess.Data
                             DisplayOrder = 4,
                             Name = "Accessories"
                         });
+                });
+
+            modelBuilder.Entity("ecommerce.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Color")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("ListPrice")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SKU")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Size")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Brand = "No Brand",
+                            CategoryId = 1,
+                            Color = "White",
+                            Description = "Cute cat printed tshirt",
+                            ListPrice = 150.0,
+                            Name = "Printed T-shirt",
+                            SKU = "T12345",
+                            Size = "Large"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Brand = "No Brand",
+                            CategoryId = 1,
+                            Color = "Beige",
+                            Description = "A beautiful dress made by yours truly.",
+                            ListPrice = 350.0,
+                            Name = "Brown Shirt with Beads in it",
+                            SKU = "T12346",
+                            Size = "Large"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "No Brand",
+                            CategoryId = 1,
+                            Color = "Black",
+                            Description = "A Black beauty",
+                            ListPrice = 550.0,
+                            Name = "Black Blouse",
+                            SKU = "T12347",
+                            Size = "Large"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "No Brand",
+                            CategoryId = 1,
+                            Color = "Brown",
+                            Description = "An office outfit must have",
+                            ListPrice = 450.0,
+                            Name = "Waffle Knit Tee",
+                            SKU = "T12348",
+                            Size = "Large"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Brand = "No Brand",
+                            CategoryId = 1,
+                            Color = "Gray",
+                            Description = "Cotton Tee",
+                            ListPrice = 150.0,
+                            Name = "Sleeveless Shirt",
+                            SKU = "T12349",
+                            Size = "Large"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Brand = "No Brand",
+                            CategoryId = 1,
+                            Color = "Blue",
+                            Description = "Versatile top good for work and summer",
+                            ListPrice = 350.0,
+                            Name = "Blue Polo Shirt",
+                            SKU = "T123410",
+                            Size = "Large"
+                        });
+                });
+
+            modelBuilder.Entity("ecommerce.Models.ProductImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImageURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductImage");
+                });
+
+            modelBuilder.Entity("ecommerce.Models.Product", b =>
+                {
+                    b.HasOne("ecommerce.Models.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ecommerce.Models.ProductImage", b =>
+                {
+                    b.HasOne("ecommerce.Models.Product", "Product")
+                        .WithMany("ProductImages")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("ecommerce.Models.Product", b =>
+                {
+                    b.Navigation("ProductImages");
                 });
 #pragma warning restore 612, 618
         }
