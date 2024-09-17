@@ -11,9 +11,12 @@ namespace ecommerceApp.DataAccess.Data
         }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder); 
+
             modelBuilder.Entity<Category>().HasData(
                 new Category { Id = 1, Name = "Tops", DisplayOrder = 1 },
                 new Category { Id = 2, Name = "Bottoms", DisplayOrder = 2 },

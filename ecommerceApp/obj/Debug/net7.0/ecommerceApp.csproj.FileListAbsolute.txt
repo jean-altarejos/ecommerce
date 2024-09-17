@@ -258,3 +258,5 @@ C:\Users\jeana\source\repos\ecommerceApp\ecommerceApp\bin\Debug\net7.0\tr\Micros
 C:\Users\jeana\source\repos\ecommerceApp\ecommerceApp\bin\Debug\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\jeana\source\repos\ecommerceApp\ecommerceApp\bin\Debug\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\jeana\source\repos\ecommerceApp\ecommerceApp\obj\Debug\net7.0\ecommerceApp.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\jeana\source\repos\ecommerceApp\ecommerceApp\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\Users\jeana\source\repos\ecommerceApp\ecommerceApp\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
