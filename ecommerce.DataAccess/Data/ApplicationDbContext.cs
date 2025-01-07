@@ -1,9 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ecommerce.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace ecommerceApp.DataAccess.Data
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
@@ -12,6 +14,9 @@ namespace ecommerceApp.DataAccess.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
+
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,6 +29,14 @@ namespace ecommerceApp.DataAccess.Data
                 new Category { Id = 4, Name = "Accessories", DisplayOrder = 4 }
             );
 
+            modelBuilder.Entity<Company>().HasData(
+                    new Company { Id = 1, Name = "Tech Solution", StreetAddress="123 Tech Street", City = "Tech City"
+                    ,PostalCode = "121212", State = "IL", PhoneNumber = "1231231234"}
+                    ,new Company { Id = 2, Name ="San San Tech", StreetAddress="345 Korea Street", City = "Makati City"
+                    ,PostalCode = "55555", State = "PHL", PhoneNumber = "333444555"}
+                    ,new Company { Id = 3, Name = "Abcd Corp", StreetAddress = "10 Abcd Street", City = "Taguig City"
+                    ,PostalCode = "32143", State="PHL", PhoneNumber = "5554441231"}
+                );
             modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
