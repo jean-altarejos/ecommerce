@@ -1,0 +1,39 @@
+﻿@model List<Company>
+
+
+<div>
+    <div>
+        <h1>This is the Category Page</h1>
+        <a asp-controller="Category" asp-action="Create">Create a Category</a>
+    </div>
+   
+    <table class="table table-bordered table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Postal Code</th>
+            <th>Phone Number</th>
+        </tr>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.Name</td>
+                <td>@obj.StreetAddress</td>
+                <td>@obj.City</td>
+                <td>@obj.State</td>
+                <td>@obj.PostalCode</td>
+                <td>@obj.PhoneNumber</td>
+                <td>
+                    <div>
+                        <a asp-controller="Company" asp-action="Upsert" asp-route-id="@obj.Id" class="btn btn-primary">Edit</a>
+                        <a asp-controller="Company" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
